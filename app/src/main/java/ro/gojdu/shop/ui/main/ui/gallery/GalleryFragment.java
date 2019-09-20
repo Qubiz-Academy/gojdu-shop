@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import ro.gojdu.shop.ui.main.R;
+import ro.gojdu.shop.R;
 
 public class GalleryFragment extends Fragment {
 

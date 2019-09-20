@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import ro.gojdu.shop.R;
+import ro.gojdu.shop.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
