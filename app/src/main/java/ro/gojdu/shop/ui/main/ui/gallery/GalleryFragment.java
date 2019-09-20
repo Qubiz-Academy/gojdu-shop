@@ -1,5 +1,6 @@
 package ro.gojdu.shop.ui.main.ui.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import ro.gojdu.shop.R;
+import ro.gojdu.shop.ui.shop.ShopItemDetailsActivity;
 
 public class GalleryFragment extends Fragment {
 
@@ -31,5 +33,17 @@ public class GalleryFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(), ShopItemDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
