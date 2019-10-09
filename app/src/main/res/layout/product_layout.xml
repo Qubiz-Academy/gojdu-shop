@@ -17,8 +17,8 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
 
         android:elevation="5dp"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="#DBDADA"
+        app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="false">
 
         <LinearLayout
