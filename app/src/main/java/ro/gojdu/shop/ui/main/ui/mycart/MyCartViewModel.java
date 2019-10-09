@@ -1,16 +1,16 @@
-package ro.gojdu.shop.ui.main.ui.share;
+package ro.gojdu.shop.ui.main.ui.mycart;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class MyCartViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public MyCartViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is My Cart fragment");
     }
 
     public LiveData<String> getText() {
