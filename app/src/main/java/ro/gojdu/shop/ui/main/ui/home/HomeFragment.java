@@ -9,27 +9,42 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+
+import com.google.android.material.snackbar.Snackbar;
 
 import ro.gojdu.shop.R;
 
 public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
+    TextView tvFilter;
+    RecyclerView recyclerView;
+    RecyclerView.Adapter myAdapter;
+    RecyclerView.LayoutManager layoutManager;
+    View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        root = inflater.inflate(R.layout.fragment_home, container, false);
+        tvFilter = root.findViewById(R.id.tvFilter);
+        tvFilter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View view) {
+                Snackbar.make(view, "Filter options?", Snackbar.LENGTH_LONG).setAction("", null).show();
             }
         });
         return root;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        recyclerView = root.findViewById(R.id.list);
+        layoutManager = new LinearLayoutManager(this.getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        myAdapter = new ProductAdapter(this.getActivity(),ApplicationClass.products);
+        recyclerView.setAdapter(myAdapter);
     }
 }
