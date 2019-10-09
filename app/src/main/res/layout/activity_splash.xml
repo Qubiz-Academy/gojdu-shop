@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logoImage"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:gravity="center"
         android:text="@string/app_name" />
 </RelativeLayout>
