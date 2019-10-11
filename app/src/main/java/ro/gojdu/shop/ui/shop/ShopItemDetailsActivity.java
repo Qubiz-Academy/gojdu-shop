@@ -32,6 +32,6 @@ public class ShopItemDetailsActivity extends AppCompatActivity {
         textDetails=findViewById(R.id.textViewDetails);
         textTitle.setText(product.getName());
         textDetails.setText(product.getDescription());
-        textPrice.setText("100");
+        textPrice.setText(String.format("%.2f",product.getPrice()));
     }
 }
