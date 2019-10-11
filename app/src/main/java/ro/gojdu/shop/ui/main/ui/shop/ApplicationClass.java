@@ -1,4 +1,4 @@
-package ro.gojdu.shop.ui.main.ui.home;
+package ro.gojdu.shop.ui.main.ui.shop;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package ro.gojdu.shop.ui.main.ui.home;
+package ro.gojdu.shop.ui.main.ui.shop;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,14 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 
 import com.google.android.material.snackbar.Snackbar;
 
 import ro.gojdu.shop.R;
 
-public class HomeFragment extends Fragment {
+public class ShopFragment extends Fragment {
     TextView tvFilter;
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
@@ -27,7 +26,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_home, container, false);
+        root = inflater.inflate(R.layout.fragment_shop, container, false);
         tvFilter = root.findViewById(R.id.tvFilter);
         tvFilter.setOnClickListener(new View.OnClickListener() {
             @Override
