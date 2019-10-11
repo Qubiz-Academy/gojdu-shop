@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,9 +26,10 @@
                 android:layout_weight="1"
                 android:drawableStart="@drawable/ic_search"
                 android:gravity="center_vertical|start"
-                android:hint="Search"
+                android:hint="@string/search"
                 android:inputType="textNoSuggestions"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/tvFilter"
@@ -39,7 +40,7 @@
                 android:drawableEnd="@drawable/ic_filter"
                 android:focusable="true"
                 android:gravity="center_vertical|end"
-                android:text="Filter"
+                android:text="@string/filter"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -49,6 +50,99 @@
             android:layout_height="match_parent">
 
         </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:behavior_hideable="true"
+        app:behavior_skipCollapsed="true"
+        android:background="@color/design_default_color_primary_dark"
+        android:id="@+id/bottom">
+
+        <TextView
+            android:id="@+id/tvFilterAZ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_az_down_arrow"
+            android:gravity="center"
+            android:text="@string/order_by_name"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tvFilterZA"
+            android:textSize="30sp"
+            android:drawableStart="@drawable/ic_az_up_arrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/order_by_name" />
+
+        <TextView
+            android:id="@+id/tvFilterPriceDown"
+            android:textSize="30sp"
+            android:drawableStart="@drawable/ic_price_down_arrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/order_by_price" />
+
+        <TextView
+            android:id="@+id/tvFilterPriceUp"
+            android:textSize="30sp"
+            android:drawableStart="@drawable/ic_price_up_arrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/order_by_price" />
+
+        <TextView
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Price range from:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="30sp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="to" />
+
+            <EditText
+                android:id="@+id/et2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="30sp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tvPriceRange"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="OK" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

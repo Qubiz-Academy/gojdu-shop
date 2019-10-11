@@ -18,4 +18,8 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_mycart">Cart</string>
+    <string name="order_by_name">Order by name</string>
+    <string name="order_by_price">Order by price</string>
+    <string name="filter">Filter</string>
+    <string name="search">Search</string>
 </resources>
