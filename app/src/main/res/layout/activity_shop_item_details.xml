@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:padding="6dp"
+        android:clickable="true"
         app:srcCompat="@drawable/baseline_add_shopping_cart_black_48" />
 </LinearLayout>
 
