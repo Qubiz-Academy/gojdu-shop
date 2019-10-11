@@ -1,13 +1,18 @@
 package ro.gojdu.shop.ui.main.ui.shop;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
     private String description;
     private int rates;
+    private double price;
+    private String imageUrl;
 
-    public Product(String name, String description) {
+    public Product(String name, String description, double price) {
         this.name = name;
         this.description = description;
+        this.price = price;
     }
 
     public String getName() {
@@ -32,5 +37,21 @@ public class Product {
 
     public void setRates(int rates) {
         this.rates = rates;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

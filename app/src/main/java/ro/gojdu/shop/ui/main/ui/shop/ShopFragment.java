@@ -112,10 +112,10 @@ public class ShopFragment extends Fragment {
 
     private void getProducts()
     {
-        products.add(new Product("Computer 2","Very good better than 2nd."));
-        products.add(new Product("Computer 4","Very good better than 1st.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAlso pretty meh!"));
-        products.add(new Product("Computer 3","Pretty meh."));
-        products.add(new Product("Computer 1 with a name too long to display","Quite average."));
+        products.add(new Product("Computer 2","Very good better than 2nd.",200.00));
+        products.add(new Product("Computer 4","Very good better than 1st.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAlso pretty meh!",30000.00));
+        products.add(new Product("Computer 3","Pretty meh.",0.00));
+        products.add(new Product("Computer 1 with a name too long to display","Quite average.",1000.00));
     }
 
     private void sortAZ(final boolean az)
