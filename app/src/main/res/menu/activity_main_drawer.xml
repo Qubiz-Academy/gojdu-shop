@@ -13,4 +13,12 @@
             android:icon="@drawable/ic_shopping_cart"
             android:title="@string/menu_mycart" />
     </group>
+
+    <group android:checkableBehavior="none">
+        <item android:title=""></item>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_logout" />
+    </group>
 </menu>

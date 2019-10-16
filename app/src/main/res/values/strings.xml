@@ -10,6 +10,7 @@
 
     <string name="menu_home">Shop</string>
     <string name="menu_mycart">Cart</string>
+    <string name="menu_logout">Sign out</string>
     <string name="order_by_name">Order by name</string>
     <string name="order_by_price">Order by price</string>
     <string name="filter">Filter</string>

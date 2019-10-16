@@ -7,7 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ro.gojdu.shop.R;
-import ro.gojdu.shop.ui.main.LoginActivity;
+import ro.gojdu.shop.ui.auth.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
