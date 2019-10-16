@@ -13,8 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
-import java.util.Collection;
 
 import ro.gojdu.shop.R;
 import ro.gojdu.shop.ui.shop.ShopItemDetailsActivity;
@@ -62,10 +63,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
-        holder.itemView.setTag(products.get(position));
-        holder.tvName.setText(products.get(position).getName());
-        holder.tvDescription.setText(products.get(position).getDescription());
-        holder.tvPrice.setText("Price: "+String.format("%.2f",products.get(position).getPrice()));
+        Product product = products.get(position);
+        holder.itemView.setTag(product);
+        holder.tvName.setText(product.getName());
+        holder.tvDescription.setText(product.getDescription());
+        Glide.with(holder.ivProduct.getContext()).load(product.getImageUrl()).into(holder.ivProduct);
+        holder.tvPrice.setText("Price: "+String.format("%.2f", product.getPrice()));
     }
 
     @Override
