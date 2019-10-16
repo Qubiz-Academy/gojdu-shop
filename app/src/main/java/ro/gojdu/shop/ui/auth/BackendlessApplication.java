@@ -1,4 +1,4 @@
-package ro.gojdu.shop.ui.main;
+package ro.gojdu.shop.ui.auth;
 
 import android.app.Application;
 

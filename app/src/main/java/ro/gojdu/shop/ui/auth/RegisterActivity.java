@@ -1,4 +1,4 @@
-package ro.gojdu.shop.ui.main;
+package ro.gojdu.shop.ui.auth;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -25,7 +25,10 @@ public class RegisterActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
     private TextView tvLoad;
-    private EditText etMail, etPassword, etName, etRenter;
+    private EditText etMail;
+    private EditText etPassword;
+    private EditText etName;
+    private EditText etRenter;
     private Button btnRegister;
 
     @Override
@@ -43,38 +46,42 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(view -> {
-            if (etMail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etName.getText().toString().isEmpty() || etRenter.getText().toString().isEmpty()) {
-                Toast.makeText(RegisterActivity.this, "Please enter all details!", Toast.LENGTH_SHORT).show();
-            } else {
-                if (etPassword.getText().toString().trim().equals(etRenter.getText().toString().trim())) {
-                    String name = etName.getText().toString().trim();
-                    String mail = etMail.getText().toString().trim();
-                    String p = etPassword.getText().toString().trim();
-                    BackendlessUser user = new BackendlessUser();
-                    user.setEmail(mail);
-                    user.setPassword(p);
-                    user.setProperty("name", name);
-                    showProgress(true);
-                    tvLoad.setText("Busy registering user... please wait...");
-                    Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
-                        @Override
-                        public void handleResponse(BackendlessUser response) {
-                            showProgress(false);
-                            Toast.makeText(RegisterActivity.this, "User successfully registered!", Toast.LENGTH_SHORT).show();
-                            RegisterActivity.this.finish();
-                        }
-
-                        @Override
-                        public void handleFault(BackendlessFault fault) {
-                            Toast.makeText(RegisterActivity.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
-                            showProgress(false);
-                        }
-                    });
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Please make sure that your password and re-type password are the same!", Toast.LENGTH_SHORT).show();
-                }
-            }
+            handleRegister();
         });
+    }
+
+    private void handleRegister() {
+        if (etMail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etName.getText().toString().isEmpty() || etRenter.getText().toString().isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please enter all details!", Toast.LENGTH_SHORT).show();
+        } else {
+            if (etPassword.getText().toString().trim().equals(etRenter.getText().toString().trim())) {
+                String name = etName.getText().toString().trim();
+                String mail = etMail.getText().toString().trim();
+                String p = etPassword.getText().toString().trim();
+                BackendlessUser user = new BackendlessUser();
+                user.setEmail(mail);
+                user.setPassword(p);
+                user.setProperty("name", name);
+                showProgress(true);
+                tvLoad.setText("Busy registering user... please wait...");
+                Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
+                    @Override
+                    public void handleResponse(BackendlessUser response) {
+                        showProgress(false);
+                        Toast.makeText(RegisterActivity.this, "User successfully registered!", Toast.LENGTH_SHORT).show();
+                        RegisterActivity.this.finish();
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+                        Toast.makeText(RegisterActivity.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+                        showProgress(false);
+                    }
+                });
+            } else {
+                Toast.makeText(RegisterActivity.this, "Please make sure that your password and re-type password are the same!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)

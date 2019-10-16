@@ -1,31 +1,30 @@
 package ro.gojdu.shop.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import android.view.MenuItem;
+import android.widget.TextView;
 
-import android.view.TextureView;
-import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.TextView;
-
 import ro.gojdu.shop.R;
+import ro.gojdu.shop.ui.auth.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,14 +34,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_mycart)
+                R.id.nav_home, R.id.nav_mycart, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
+
+        setupUserLogoutView(navigationView);
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -56,10 +60,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    private void setupUserLogoutView(NavigationView navigationView) {
+        MenuItem item = navigationView.getMenu().findItem(R.id.nav_logout);
+        item.setOnMenuItemClickListener(item1 -> {
+            Backendless.UserService.logout(new AsyncCallback<Void>() {
+                @Override
+                public void handleResponse(Void response) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    MainActivity.this.finish();
+                }
+
+                @Override
+                public void handleFault(BackendlessFault fault) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    MainActivity.this.finish();
+                }
+            });
+            return false;
+        });
     }
 
     @Override
