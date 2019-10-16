@@ -14,4 +14,7 @@
     <string name="order_by_price">Order by price</string>
     <string name="filter">Filter</string>
     <string name="search">Search</string>
+    <string name="price_range_from">Price range from:</string>
+    <string name="to">to</string>
+    <string name="ok">OK</string>
 </resources>
