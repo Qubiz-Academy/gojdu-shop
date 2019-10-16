@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private void setupUserLogoutView(NavigationView navigationView) {
         MenuItem item = navigationView.getMenu().findItem(R.id.nav_logout);
         item.setOnMenuItemClickListener(item1 -> {
+            item.setEnabled(false);
+
             Backendless.UserService.logout(new AsyncCallback<Void>() {
                 @Override
                 public void handleResponse(Void response) {
