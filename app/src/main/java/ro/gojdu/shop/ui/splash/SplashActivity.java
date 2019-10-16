@@ -1,14 +1,13 @@
 package ro.gojdu.shop.ui.splash;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import ro.gojdu.shop.R;
-import ro.gojdu.shop.ui.main.MainActivity;
-import ro.gojdu.shop.ui.main.login;
+import ro.gojdu.shop.ui.main.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, login.class);
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 finish();
                 startActivity(intent);
             }
