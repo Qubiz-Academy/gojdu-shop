@@ -2,6 +2,8 @@ package ro.gojdu.shop.ui.main;
 
 import android.os.Bundle;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -44,9 +46,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        TextView textViewUsername= navigationView.findViewById(R.id.navHeaderUsername);
-        TextView textViewUserEmail= navigationView.findViewById(R.id.navHeaderUserEmail);
+        TextView textViewUsername = navigationView.getHeaderView(0).findViewById(R.id.navHeaderUsername);
+        TextView textViewUserEmail = navigationView.getHeaderView(0).findViewById(R.id.navHeaderUserEmail);
+        BackendlessUser backendlessUser = Backendless.UserService.CurrentUser();
 
+        if (backendlessUser != null) {
+            textViewUserEmail.setText(backendlessUser.getEmail());
+            textViewUsername.setText(backendlessUser.getProperty("name").toString());
+        }
     }
 
     @Override
