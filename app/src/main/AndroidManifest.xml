@@ -12,8 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.auth.RegisterActivity"></activity>
-        <activity android:name=".ui.auth.LoginActivity" />
+
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -23,12 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.shop.ShopItemDetailsActivity" />
+
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
-    </application>
 
+        <activity android:name=".ui.shop.ShopItemDetailsActivity" />
+    </application>
 </manifest>
