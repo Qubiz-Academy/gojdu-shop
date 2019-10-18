@@ -55,7 +55,7 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         app:behavior_hideable="true"
         app:behavior_skipCollapsed="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorFilter"
         android:clickable="true"
         android:id="@+id/bottom">
 
@@ -64,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/dotted"
+
             android:drawableStart="@drawable/ic_az_down_arrow"
             android:gravity="center"
             android:text="@string/order_by_name"
@@ -104,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@color/colorFilter"
             android:text="@string/price_range_from" />
 
         <LinearLayout

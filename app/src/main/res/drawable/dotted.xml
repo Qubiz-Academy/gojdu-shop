@@ -9,27 +9,18 @@
                 android:color="#222222" />
             <corners
                 android:radius="2dp" />
-            <padding
-                android:left="10dp"
-                android:top="10dp"
-                android:right="10dp"
-                android:bottom="10dp" />
         </shape>
     </item>
     <item>
         <shape>
             <gradient
-                android:startColor="@color/colorPrimary"
-                android:endColor="@color/colorPrimary"
+                android:startColor="@color/colorFilter"
+                android:endColor="@color/colorFilter"
                 android:angle="270" />
 
             <corners
                 android:radius="7dp" />
-            <padding
-                android:left="10dp"
-                android:top="10dp"
-                android:right="10dp"
-                android:bottom="10dp" />
+
         </shape>
     </item>
 </selector>
