@@ -55,7 +55,7 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         app:behavior_hideable="true"
         app:behavior_skipCollapsed="true"
-        android:background="#D5D5D5"
+        android:background="@color/colorPrimary"
         android:clickable="true"
         android:id="@+id/bottom">
 
@@ -63,6 +63,7 @@
             android:id="@+id/tvFilterAZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/dotted"
             android:drawableStart="@drawable/ic_az_down_arrow"
             android:gravity="center"
             android:text="@string/order_by_name"
@@ -75,12 +76,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@drawable/dotted"
             android:text="@string/order_by_name" />
 
         <TextView
             android:id="@+id/tvFilterPriceDown"
             android:textSize="30sp"
             android:drawableStart="@drawable/ic_price_down_arrow"
+            android:background="@drawable/dotted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -92,6 +95,7 @@
             android:drawableStart="@drawable/ic_price_up_arrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/dotted"
             android:gravity="center"
             android:text="@string/order_by_price" />
 
@@ -138,7 +142,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="@drawable/dotted"
                 android:text="@string/ok" />
+
         </LinearLayout>
     </LinearLayout>
 
