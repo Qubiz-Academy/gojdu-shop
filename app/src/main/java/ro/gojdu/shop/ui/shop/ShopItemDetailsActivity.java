@@ -1,6 +1,7 @@
 package ro.gojdu.shop.ui.shop;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ public class ShopItemDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_item_details);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         product= (Product) getIntent().getSerializableExtra(PRODUCT_DATA);
 
         productImage=findViewById(R.id.imageProduct);
@@ -36,5 +39,13 @@ public class ShopItemDetailsActivity extends AppCompatActivity {
         textTitle.setText(product.getName());
         textDetails.setText(product.getDescription());
         textPrice.setText(String.format("%.2f",product.getPrice()));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 }
