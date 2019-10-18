@@ -55,7 +55,7 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         app:behavior_hideable="true"
         app:behavior_skipCollapsed="true"
-        android:background="@color/design_default_color_primary_dark"
+        android:background="#D5D5D5"
         android:clickable="true"
         android:id="@+id/bottom">
 

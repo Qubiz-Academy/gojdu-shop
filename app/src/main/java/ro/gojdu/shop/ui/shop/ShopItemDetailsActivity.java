@@ -1,10 +1,12 @@
 package ro.gojdu.shop.ui.shop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import ro.gojdu.shop.R;
 import ro.gojdu.shop.ui.main.ui.shop.Product;
@@ -27,6 +29,7 @@ public class ShopItemDetailsActivity extends AppCompatActivity {
         product= (Product) getIntent().getSerializableExtra(PRODUCT_DATA);
 
         productImage=findViewById(R.id.imageProduct);
+        Glide.with(productImage.getContext()).load(product.getImageUrl()).into(productImage);
         textPrice=findViewById(R.id.textViewPrice);
         textTitle=findViewById(R.id.textViewTitle);
         textDetails=findViewById(R.id.textViewDetails);
