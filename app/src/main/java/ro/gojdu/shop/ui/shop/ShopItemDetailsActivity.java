@@ -1,10 +1,13 @@
 package ro.gojdu.shop.ui.shop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import ro.gojdu.shop.R;
 import ro.gojdu.shop.ui.main.ui.shop.Product;
@@ -24,14 +27,25 @@ public class ShopItemDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_item_details);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         product= (Product) getIntent().getSerializableExtra(PRODUCT_DATA);
 
         productImage=findViewById(R.id.imageProduct);
+        Glide.with(productImage.getContext()).load(product.getImageUrl()).into(productImage);
         textPrice=findViewById(R.id.textViewPrice);
         textTitle=findViewById(R.id.textViewTitle);
         textDetails=findViewById(R.id.textViewDetails);
         textTitle.setText(product.getName());
         textDetails.setText(product.getDescription());
         textPrice.setText(String.format("%.2f",product.getPrice()));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 }
